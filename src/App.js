@@ -4,10 +4,18 @@ import MetaMaskGuide from "./pages/MetaMaskGuide";
 import Admin from "./abis/Admin.json";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Container } from "semantic-ui-react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import Home from "./pages/Home/Home";
+import AdminPage from "./pages/Admin/Admin";
+import { connect } from "react-redux";
+import { dispatchAdminContract } from "./store/actions/contractActions";
 
-export default class App extends Component {
+class App extends Component {
   state = {
     isMetaMaskPresent: true,
+    account: null,
+    admin: {},
   };
 
   async componentWillMount() {
@@ -15,7 +23,7 @@ export default class App extends Component {
     await this.loadBlockChainData();
   }
 
-  async loadWeb3() {
+  loadWeb3 = async () => {
     this.setState({ isMetaMaskPresent: true });
     if (window.ethereum) {
       window.ethereum.request({
@@ -27,17 +35,19 @@ export default class App extends Component {
     } else {
       this.setState({ isMetaMaskPresent: false });
     }
-  }
+  };
 
   loadBlockChainData = async () => {
     const web3 = window.web3;
     const accounts = await web3.eth.getAccounts();
+    if (accounts) this.setState({ account: accounts[0] });
+
     const networkId = await web3.eth.net.getId();
     const AdminData = await Admin.networks[networkId];
     if (AdminData) {
       const admin = await new web3.eth.Contract(Admin.abi, AdminData.address);
-      const owner = await admin.methods.owner().call();
-      console.log(owner);
+      this.setState({ admin });
+      this.props.dispatchAdminContract(admin);
     } else {
       toast.error("The Admin Contract does not exist on this network!");
     }
@@ -45,12 +55,23 @@ export default class App extends Component {
 
   render() {
     return this.state.isMetaMaskPresent ? (
-      <div>
-        <ToastContainer />
-        Hi
-      </div>
+      <BrowserRouter>
+        <Container>
+          <ToastContainer />
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/admin" exact component={AdminPage} />
+          </Switch>
+        </Container>
+      </BrowserRouter>
     ) : (
       <MetaMaskGuide />
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  return {};
+};
+
+export default connect(mapStateToProps, { dispatchAdminContract })(App);
