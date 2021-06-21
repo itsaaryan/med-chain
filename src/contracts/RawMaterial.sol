@@ -1,7 +1,7 @@
 pragma solidity >=0.5.0 <0.8.6;
 
 contract RawMaterial{
-    address public owner;
+    address owner;
     enum packageStatus{atCreator,picked,delivered}
 
     event ShippmentUpdate(
@@ -12,14 +12,14 @@ contract RawMaterial{
         uint Status
     );
 
-    address public productId;
-    string public description;
-    string public ownerName;
-    string public location;
-    uint256 public quantity;
-    address public shipper;
-    address public manufacturer;
-    address public supplier;
+    address productId;
+    string description;
+    string ownerName;
+    string location;
+    uint256 quantity;
+    address shipper;
+    address manufacturer;
+    address supplier;
     packageStatus status;
     string packageReceiverDescription;
 
@@ -68,15 +68,15 @@ contract RawMaterial{
         return uint(status);
     }
 
-    function pickPackage() public {
-        require(msg.sender==shipper,"Only the shipper is allowed to ship this package!");
+    function pickPackage(address _shipper) public {
+        require(_shipper==shipper,"Only the shipper is allowed to ship this package!");
         require(status==packageStatus(0),"the package is no longer with the owner!");
         status=packageStatus(1);
         emit ShippmentUpdate(address(this), shipper, manufacturer, 1, 1);
     }
 
-    function receivePackage() public{
-        require(msg.sender==manufacturer,"Ony manufacturer can receiv the package");
+    function receivePackage(address _manufacturer) public{
+        require(_manufacturer==manufacturer,"Ony manufacturer can receiv the package");
         require(status==packageStatus(1),"Package not shipped yet!");
         status=packageStatus(2);
         emit ShippmentUpdate(address(this), shipper, manufacturer, 1, 2);

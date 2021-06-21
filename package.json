@@ -19,6 +19,7 @@
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
     "truffle": "^5.1.39",
+    "truffle-contract-size": "^2.0.1",
     "web-vitals": "^1.0.1",
     "web3": "^1.2.11"
   },
