@@ -7,9 +7,13 @@ import "react-toastify/dist/ReactToastify.css";
 import { Container } from "semantic-ui-react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Home from "./pages/Home/Home";
+import AdminPageCreate from "./pages/Admin/AdminCreateUser";
 import AdminPage from "./pages/Admin/Admin";
 import { connect } from "react-redux";
-import { dispatchAdminContract } from "./store/actions/contractActions";
+import {
+  dispatchAdminContract,
+  dispatchCurrentEthAccount,
+} from "./store/actions/contractActions";
 
 class App extends Component {
   state = {
@@ -40,8 +44,10 @@ class App extends Component {
   loadBlockChainData = async () => {
     const web3 = window.web3;
     const accounts = await web3.eth.getAccounts();
-    if (accounts) this.setState({ account: accounts[0] });
-
+    if (accounts) {
+      this.setState({ account: accounts[0] });
+      this.props.dispatchCurrentEthAccount(accounts[0]);
+    }
     const networkId = await web3.eth.net.getId();
     const AdminData = await Admin.networks[networkId];
     if (AdminData) {
@@ -61,6 +67,11 @@ class App extends Component {
           <Switch>
             <Route path="/" exact component={Home} />
             <Route path="/admin" exact component={AdminPage} />
+            <Route
+              path="/admin/register-user"
+              exact
+              component={AdminPageCreate}
+            />
           </Switch>
         </Container>
       </BrowserRouter>
@@ -74,4 +85,7 @@ const mapStateToProps = (state) => {
   return {};
 };
 
-export default connect(mapStateToProps, { dispatchAdminContract })(App);
+export default connect(mapStateToProps, {
+  dispatchAdminContract,
+  dispatchCurrentEthAccount,
+})(App);

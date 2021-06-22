@@ -24,7 +24,7 @@ contract Admin{
 
     event UserRegister(address indexed EthAddress, string Name);
     event UserRoleRevoked(address indexed EthAddress, string Name, uint Role);
-    event UserRoleRessigne(address indexed EthAddress, string Name, uint Role);
+    event UserRoleRessign(address indexed EthAddress, string Name, uint Role);
 
      struct UserInfo{
         string name;
@@ -38,7 +38,7 @@ contract Admin{
 
     function registerUser(address EthAddress,string memory Name,string memory Location,uint Role) public onlyOwner{
         require(UsersDetails[EthAddress].role==roles.norole,"User Already registered");
-           UsersDetails[EthAddress].name = Name;
+        UsersDetails[EthAddress].name = Name;
         UsersDetails[EthAddress].location = Location;
         UsersDetails[EthAddress].ethAddress = EthAddress;
         UsersDetails[EthAddress].role = roles(Role);
@@ -55,7 +55,7 @@ contract Admin{
     function reassignRole(address userAddress,uint Role) public onlyOwner {
           require(UsersDetails[userAddress].role != roles.norole, "User not registered");
         UsersDetails[userAddress].role = roles(Role);
-        emit UserRoleRessigne(userAddress, UsersDetails[userAddress].name,uint(UsersDetails[userAddress].role));
+        emit UserRoleRessign(userAddress, UsersDetails[userAddress].name,uint(UsersDetails[userAddress].role));
     }
 
     /***********************************************User Section****************************************************/
