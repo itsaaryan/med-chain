@@ -96,7 +96,10 @@ class Admin extends Component {
             <hr></hr>
             <br></br>
             <Card.Description>
-              <Form onSubmit={this.handleSubmit} error={!!this.errorMessage}>
+              <Form
+                onSubmit={this.handleSubmit}
+                error={!!this.state.errorMessage}
+              >
                 <Form.Field>
                   <label htmlFor="name">Name</label>
                   <input

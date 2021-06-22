@@ -16,6 +16,9 @@ export default class RawMaterialRow extends Component {
         <Cell style={{ wordBreak: "break-all" }}>
           {rawPackage.manufacturer}
         </Cell>
+        <Cell style={{ wordBreak: "break-all" }}>
+          {rawPackage.rawPackageAddress}
+        </Cell>
       </Row>
     );
   }

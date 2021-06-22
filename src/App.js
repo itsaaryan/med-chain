@@ -16,6 +16,7 @@ import {
 } from "./store/actions/contractActions";
 import SupplierPage from "./pages/Supplier/Supplier";
 import CreateRawPackhage from "./pages/Supplier/CreateRawPackhage";
+import TransporterPage from "./pages/Transporter/Transporter";
 
 class App extends Component {
   state = {
@@ -80,6 +81,7 @@ class App extends Component {
               exact
               component={CreateRawPackhage}
             />
+            <Route path="/transporter" exact component={TransporterPage} />
           </Switch>
         </Container>
       </BrowserRouter>

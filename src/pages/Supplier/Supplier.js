@@ -4,6 +4,7 @@ import Supplier from "../../abis/Supplier.json";
 import { toast } from "react-toastify";
 import RawMaterial from "../../abis/RawMaterial.json";
 import RawMaterialRow from "../../components/RawMaterialRow";
+import "./Supplier.css";
 
 export default class SupplierPage extends Component {
   state = {
@@ -46,6 +47,7 @@ export default class SupplierPage extends Component {
           transporter: info[4],
           manufacturer: info[5],
           supplier: info[6],
+          rawPackageAddress: rawMaterialAddress,
         };
         this.setState({
           rawMaterialsInfo: [...this.state.rawMaterialsInfo, newinfo],
@@ -78,6 +80,7 @@ export default class SupplierPage extends Component {
               <HeaderCell>Quantity</HeaderCell>
               <HeaderCell>Transporter</HeaderCell>
               <HeaderCell>Manufacturer</HeaderCell>
+              <HeaderCell>RawMaterial Address</HeaderCell>
             </Row>
           </Header>
           <Body>{this.renderRows()}</Body>

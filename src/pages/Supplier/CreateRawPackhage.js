@@ -4,6 +4,7 @@ import { withRouter } from "react-router";
 import { toast } from "react-toastify";
 import { Card, Form, Button, Message } from "semantic-ui-react";
 import Supplier from "../../abis/Supplier.json";
+import "./Supplier.css";
 
 class CreateRawPackhage extends Component {
   state = {
@@ -86,7 +87,10 @@ class CreateRawPackhage extends Component {
             <hr></hr>
             <br></br>
             <Card.Description>
-              <Form onSubmit={this.handleSubmit} error={!!this.errorMessage}>
+              <Form
+                onSubmit={this.handleSubmit}
+                error={!!this.state.errorMessage}
+              >
                 <Form.Field>
                   <label htmlFor="ownerName">Name</label>
                   <input
