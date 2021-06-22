@@ -65,7 +65,7 @@ class Admin extends Component {
     const admin = this.props.admin;
     const { ethAddress, name, location, role } = this.state;
     const owner = await admin.methods.owner().call();
-    if (owner != this.props.eth_account) {
+    if (owner !== this.props.eth_account) {
       this.setState({
         errorMessage: "Sorry! You are not the Admin!!",
         loading: false,

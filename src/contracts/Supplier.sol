@@ -54,13 +54,13 @@ contract Supplier{
         emit RawSupplyInit(address(rawData), msg.sender, _shipper, _manufacturer);
     }
 
-    function getPackageCountSupplier() public view returns(uint){
-        require(roles(Admin(admin).getRole(msg.sender))==roles.supplier,"Only supplier can get a package!");
-        return supplierRawProductInfo[msg.sender].length;
+    function getPackageCountSupplier(address _supplier) public view returns(uint){
+        require(roles(Admin(admin).getRole(_supplier))==roles.supplier,"Only supplier can get a package!");
+        return supplierRawProductInfo[_supplier].length;
     }
 
-    function getPackageIdByIndexSupplier(uint index) public view returns(address){
-        require(roles(Admin(admin).getRole(msg.sender))==roles.supplier,"Only supplier can call this function!");
-        return supplierRawProductInfo[msg.sender][index];
+    function getPackageIdByIndexSupplier(uint index,address _supplier) public view returns(address){
+        require(roles(Admin(admin).getRole(_supplier))==roles.supplier,"Only supplier can call this function!");
+        return supplierRawProductInfo[_supplier][index];
     }
 }

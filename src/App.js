@@ -14,6 +14,8 @@ import {
   dispatchAdminContract,
   dispatchCurrentEthAccount,
 } from "./store/actions/contractActions";
+import SupplierPage from "./pages/Supplier/Supplier";
+import CreateRawPackhage from "./pages/Supplier/CreateRawPackhage";
 
 class App extends Component {
   state = {
@@ -71,6 +73,12 @@ class App extends Component {
               path="/admin/register-user"
               exact
               component={AdminPageCreate}
+            />
+            <Route path="/supplier" exact component={SupplierPage} />
+            <Route
+              path="/supplier/new-raw-package"
+              exact
+              component={CreateRawPackhage}
             />
           </Switch>
         </Container>
