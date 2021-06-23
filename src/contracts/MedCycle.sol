@@ -43,14 +43,14 @@ contract MedCycle{
         RawPackagesAtManufacturer[msg.sender].push(rawmaterialAddress);
     }
 
-    function getPackagesCountManufacturer() public view returns(uint){
-        require(roles(Admin(admin).getRole(msg.sender))==roles.manufacturer,"Only Manufacturer is allowed to call this");
-        return RawPackagesAtManufacturer[msg.sender].length;
+    function getPackagesCountManufacturer(address _manufacturer) public view returns(uint){
+        require(roles(Admin(admin).getRole(_manufacturer))==roles.manufacturer,"Only Manufacturer is allowed to call this");
+        return RawPackagesAtManufacturer[_manufacturer].length;
     }
 
-    function getPackageIdByIndexManufacturer(uint index) public view returns(address){
-        require(roles(Admin(admin).getRole(msg.sender))==roles.manufacturer,"Only Manufacturer is allowed to call this");
-        return RawPackagesAtManufacturer[msg.sender][index];
+    function getPackageIdByIndexManufacturer(uint index,address _manufacturer) public view returns(address){
+        require(roles(Admin(admin).getRole(_manufacturer))==roles.manufacturer,"Only Manufacturer is allowed to call this");
+        return RawPackagesAtManufacturer[_manufacturer][index];
     } 
 
     function manufactureMedicine(
@@ -73,14 +73,14 @@ contract MedCycle{
            emit MedicineNewBatch(address(newMedicine), msg.sender, _shipper, _distributor);
         }
 
-    function getManufacturedMedicineCountManufacturer() public view returns(uint){
-            require(roles(Admin(admin).getRole(msg.sender))==roles.manufacturer,"Only Manufacturer is allowed to call this");
-            return ManufacturedMedicine[msg.sender].length;
+    function getManufacturedMedicineCountManufacturer(address _manufacturer) public view returns(uint){
+            require(roles(Admin(admin).getRole(_manufacturer))==roles.manufacturer,"Only Manufacturer is allowed to call this");
+            return ManufacturedMedicine[_manufacturer].length;
     }
 
-    function getManufacturedMedicineIdByIndexManufacturer(uint index) public view returns(address){
-            require(roles(Admin(admin).getRole(msg.sender))==roles.manufacturer,"Only Manufacturer is allowed to call this");
-            return ManufacturedMedicine[msg.sender][index];
+    function getManufacturedMedicineIdByIndexManufacturer(uint index,address _manufacturer) public view returns(address){
+            require(roles(Admin(admin).getRole(_manufacturer))==roles.manufacturer,"Only Manufacturer is allowed to call this");
+            return ManufacturedMedicine[_manufacturer][index];
     }
 
     function setHash(string memory _hash) public {
@@ -117,18 +117,18 @@ contract MedCycle{
             MedicineDistributorToRtailerxContract[_batchId]=address(newPackage);
     }
 
-    function getBatchesCountDistributorToRetailer() public view returns(uint){
-         require(roles(Admin(admin).getRole(msg.sender))==roles.distributor,
+    function getBatchesCountDistributorToRetailer(address _distributor) public view returns(uint){
+         require(roles(Admin(admin).getRole(_distributor))==roles.distributor,
             "Only Distributor is allowed to call this"
             );
-        return MedicineDistributorToRtailer[msg.sender].length;
+        return MedicineDistributorToRtailer[_distributor].length;
     }
 
-     function getBatchesIdByIndexDistributorToRetailer(uint index) public view returns(address){
-          require(roles(Admin(admin).getRole(msg.sender))==roles.distributor,
+     function getBatchesIdByIndexDistributorToRetailer(uint index,address _distributor) public view returns(address){
+          require(roles(Admin(admin).getRole(_distributor))==roles.distributor,
             "Only Distributor is allowed to call this"
             );
-        return MedicineDistributorToRtailer[msg.sender][index];
+        return MedicineDistributorToRtailer[_distributor][index];
      }
 
      function getSubContractDistributorToRetailer(address _batchId) public view returns(address){
@@ -176,14 +176,14 @@ contract MedCycle{
         return uint(sale[_batchId]);
     }
 
-    function getBatchesCountRetailer() public view returns(uint){
-        require(roles(Admin(admin).getRole(msg.sender))==roles.retailer,"Ony retailer can call this function!");
-        return MedicineBatchRetailer[msg.sender].length;
+    function getBatchesCountRetailer(address _retailer) public view returns(uint){
+        require(roles(Admin(admin).getRole(_retailer))==roles.retailer,"Ony retailer can call this function!");
+        return MedicineBatchRetailer[_retailer].length;
     }
 
-    function getBatchedIdByIndexRetailer(uint index) public view returns(address){
-        require(roles(Admin(admin).getRole(msg.sender))==roles.retailer,"Ony retailer can call this function!");
-        return MedicineBatchRetailer[msg.sender][index];
+    function getBatchedIdByIndexRetailer(uint index,address _retailer) public view returns(address){
+        require(roles(Admin(admin).getRole(_retailer))==roles.retailer,"Ony retailer can call this function!");
+        return MedicineBatchRetailer[_retailer][index];
     }
 
 }

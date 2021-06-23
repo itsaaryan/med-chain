@@ -1,19 +1,16 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { toast } from "react-toastify";
 import { Card, Form, Button, Message } from "semantic-ui-react";
-import Supplier from "../../abis/Supplier.json";
-import "./Supplier.css";
+import MedCycle from "../../abis/MedCycle.json";
 
-class CreateRawPackhage extends Component {
+class CreateMedicine extends Component {
   state = {
     description: "",
-    ownerName: "",
-    location: "",
+    rawmaterialaddress: "",
     quantity: "",
     shipper: "",
-    manufacturer: "",
+    distributor: "",
     errorMessage: "",
     loading: false,
   };
@@ -28,61 +25,50 @@ class CreateRawPackhage extends Component {
   handleSubmit = async (e) => {
     e.preventDefault();
     this.setState({ loading: true, errorMessage: "" });
-    const admin = this.props.admin;
-    const {} = this.state;
-    const role = await admin.methods.getRole(this.props.eth_account).call();
-    if (Number(role) !== 1) {
-      this.setState({
-        errorMessage: "Sorry! You are not a supplier!!",
-        loading: false,
-      });
-      return;
-    }
-    try {
-      const web3 = window.web3;
-      const networkId = await web3.eth.net.getId();
-      const SupplierData = await Supplier.networks[networkId];
-      if (SupplierData) {
-        const supplier = await new web3.eth.Contract(
-          Supplier.abi,
-          SupplierData.address
-        );
+    const web3 = window.web3;
+    const accounts = await web3.eth.getAccounts();
+    const networkId = await web3.eth.net.getId();
+    const MedCycleData = await MedCycle.networks[networkId];
+    if (MedCycleData) {
+      const medCycle = await new web3.eth.Contract(
+        MedCycle.abi,
+        MedCycleData.address
+      );
+      try {
         const {
           description,
-          ownerName,
-          location,
+          rawmaterialaddress,
           quantity,
           shipper,
-          manufacturer,
+          distributor,
         } = this.state;
-        await supplier.methods
-          .createRawPackage(
+        await medCycle.methods
+          .manufactureMedicine(
             description,
-            ownerName,
-            location,
+            rawmaterialaddress,
             quantity,
             shipper,
-            manufacturer
+            distributor
           )
-          .send({ from: this.props.eth_account });
-        toast.success("Successfully created a new package!!");
-        this.props.history.push("/supplier");
-      } else {
-        toast.error("The Supplier Contract does not exist on this network!");
+          .send({ from: accounts[0] });
+        toast.success("Congrats!! New Medicine Created!!");
+        this.props.history.push("/medicine");
+      } catch (err) {
+        this.setState({ errorMessage: err.message });
       }
-    } catch (err) {
-      this.setState({ errorMessage: err.message });
+    } else {
+      toast.error("The Supplier Contract does not exist on this network!");
     }
     this.setState({ loading: false });
   };
 
   render() {
     return (
-      <div className="supplier">
+      <div className="create-medicine">
         <Card centered style={{ minWidth: "360px" }}>
           <Card.Content>
             <Card.Header centered>
-              <h2>Create Raw Package</h2>
+              <h2>Create Medicine</h2>
             </Card.Header>
             <hr></hr>
             <br></br>
@@ -92,27 +78,11 @@ class CreateRawPackhage extends Component {
                 error={!!this.state.errorMessage}
               >
                 <Form.Field>
-                  <label htmlFor="ownerName">Name</label>
-                  <input
-                    id="ownerName"
-                    autoCorrect="off"
-                    autoComplete="off"
-                    value={this.state.ownerName}
-                    onChange={this.handleChange}
-                  />
-                </Form.Field>
-                <Form.Field>
-                  <label htmlFor="location">Location</label>
-                  <input
-                    id="location"
-                    value={this.state.location}
-                    onChange={this.handleChange}
-                  />
-                </Form.Field>
-                <Form.Field>
                   <label htmlFor="description">Description</label>
                   <input
                     id="description"
+                    autoCorrect="off"
+                    autoComplete="off"
                     value={this.state.description}
                     onChange={this.handleChange}
                   />
@@ -126,10 +96,12 @@ class CreateRawPackhage extends Component {
                   />
                 </Form.Field>
                 <Form.Field>
-                  <label htmlFor="manufacturer">Manufacturer</label>
+                  <label htmlFor="rawmaterialaddress">
+                    Raw Material Address
+                  </label>
                   <input
-                    id="manufacturer"
-                    value={this.state.manufacturer}
+                    id="rawmaterialaddress"
+                    value={this.state.rawmaterialaddress}
                     onChange={this.handleChange}
                     placeholder="0x0"
                   />
@@ -143,15 +115,21 @@ class CreateRawPackhage extends Component {
                     placeholder="0x0"
                   />
                 </Form.Field>
-
-                <br></br>
-                {this.state.errorMessage && (
-                  <Message
-                    negative
-                    header="Oops!!"
-                    content={this.state.errorMessage}
+                <Form.Field>
+                  <label htmlFor="distributor">Distributor</label>
+                  <input
+                    id="distributor"
+                    value={this.state.distributor}
+                    onChange={this.handleChange}
+                    placeholder="0x0"
                   />
-                )}
+                </Form.Field>
+                <br></br>
+                <Message
+                  error
+                  header="Oops!!"
+                  content={this.state.errorMessage}
+                />
                 <hr></hr>
                 <Button
                   color="teal"
@@ -170,11 +148,4 @@ class CreateRawPackhage extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    admin: state.contracts.admin,
-    eth_account: state.contracts.eth_account,
-  };
-};
-
-export default withRouter(connect(mapStateToProps, {})(CreateRawPackhage));
+export default withRouter(CreateMedicine);

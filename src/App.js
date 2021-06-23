@@ -17,6 +17,10 @@ import {
 import SupplierPage from "./pages/Supplier/Supplier";
 import CreateRawPackhage from "./pages/Supplier/CreateRawPackhage";
 import TransporterPage from "./pages/Transporter/Transporter";
+import RawPackagesManufacturer from "./pages/Medicine/RawPackages";
+import CreateMedicine from "./pages/Medicine/CreateMedicine";
+import Medicine from "./pages/Medicine/Medicine";
+import Distributor from "./pages/Distributor/Distributor";
 
 class App extends Component {
   state = {
@@ -82,6 +86,18 @@ class App extends Component {
               component={CreateRawPackhage}
             />
             <Route path="/transporter" exact component={TransporterPage} />
+            <Route
+              path="/medicine/raw-packages-atmanufacturer"
+              exact
+              component={RawPackagesManufacturer}
+            />
+            <Route
+              path="/medicine/create-medicine"
+              exact
+              component={CreateMedicine}
+            />
+            <Route path="/medicine" exact component={Medicine} />
+            <Route path="/distributor" exact component={Distributor} />
           </Switch>
         </Container>
       </BrowserRouter>
