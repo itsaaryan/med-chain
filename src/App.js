@@ -21,6 +21,7 @@ import RawPackagesManufacturer from "./pages/Medicine/RawPackages";
 import CreateMedicine from "./pages/Medicine/CreateMedicine";
 import Medicine from "./pages/Medicine/Medicine";
 import Distributor from "./pages/Distributor/Distributor";
+import ReceiveMedicine from "./pages/Distributor/ReceiveMedicine";
 
 class App extends Component {
   state = {
@@ -97,7 +98,16 @@ class App extends Component {
               component={CreateMedicine}
             />
             <Route path="/medicine" exact component={Medicine} />
-            <Route path="/distributor" exact component={Distributor} />
+            <Route
+              path="/distributor/transfer-to-retailer"
+              exact
+              component={Distributor}
+            />
+            <Route
+              path="/distributor/receive-medicine"
+              exact
+              component={ReceiveMedicine}
+            />
           </Switch>
         </Container>
       </BrowserRouter>

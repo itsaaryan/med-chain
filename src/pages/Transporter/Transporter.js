@@ -81,9 +81,9 @@ class TransporterPage extends Component {
                 error={!!this.state.errorMessage}
               >
                 <Form.Field>
-                  <label>Select Package Destination</label>
+                  <label>Pick-Up Point</label>
                   <Dropdown
-                    placeholder="Select Destination"
+                    placeholder="Select pick-up"
                     fluid
                     selection
                     options={this.destinationOptions}
