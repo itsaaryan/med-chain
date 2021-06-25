@@ -22,7 +22,13 @@ export default class MedicineInfo extends Component {
     console.log(medicineInfo);
     return (
       <div style={{ margin: "40px auto" }}>
-        <Card style={{ width: "80%", margin: "auto" }}>
+        <Card
+          style={
+            this.props.distributor
+              ? { width: "100%" }
+              : { width: "80%", margin: "auto" }
+          }
+        >
           <Card.Content>
             <Card.Header>Medicine Information</Card.Header>
             <hr></hr>

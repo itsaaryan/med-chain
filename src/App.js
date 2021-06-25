@@ -10,10 +10,6 @@ import Home from "./pages/Home/Home";
 import AdminPageCreate from "./pages/Admin/AdminCreateUser";
 import AdminPage from "./pages/Admin/Admin";
 import { connect } from "react-redux";
-import {
-  dispatchAdminContract,
-  dispatchCurrentEthAccount,
-} from "./store/actions/contractActions";
 import SupplierPage from "./pages/Supplier/Supplier";
 import CreateRawPackhage from "./pages/Supplier/CreateRawPackhage";
 import TransporterPage from "./pages/Transporter/Transporter";
@@ -22,6 +18,10 @@ import CreateMedicine from "./pages/Medicine/CreateMedicine";
 import Medicine from "./pages/Medicine/Medicine";
 import Distributor from "./pages/Distributor/Distributor";
 import ReceiveMedicine from "./pages/Distributor/ReceiveMedicine";
+import {
+  dispatchAdminContract,
+  dispatchCurrentEthAccount,
+} from "./store/actions/contractActions";
 
 class App extends Component {
   state = {
@@ -98,11 +98,7 @@ class App extends Component {
               component={CreateMedicine}
             />
             <Route path="/medicine" exact component={Medicine} />
-            <Route
-              path="/distributor/transfer-to-retailer"
-              exact
-              component={Distributor}
-            />
+            <Route path="/distributor" exact component={Distributor} />
             <Route
               path="/distributor/receive-medicine"
               exact

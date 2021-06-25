@@ -6,7 +6,7 @@ contract Distributor{
     address owner;
     enum packageStatus{atCreator,picked,delivered}
 
-    address batchId;
+    address public batchId;
     address sender;
     address shipper;
     address retailer;
@@ -32,7 +32,7 @@ contract Distributor{
     function pickPackageForRetailer(address _batchId,address _shipper) public {
         require(_shipper==shipper,"Only Shipper is allowed to pich package");
         status=packageStatus(1);
-        Medicine(_batchId).receivePackageDistributor(retailer, owner);
+        Medicine(_batchId).pickPackageRetailer(_shipper);
     }
 
     function receivePackageRetailer(address _batchId,address _receiver) public {
