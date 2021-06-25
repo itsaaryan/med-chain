@@ -39,6 +39,10 @@ export default class MedicinePage extends Component {
         );
         const info = await medicine.methods.getMediceInfo().call();
 
+        const medicineStatus = await medicine.methods
+          .getMedicineStatus()
+          .call();
+
         const rawMaterial = await new window.web3.eth.Contract(
           RawMaterial.abi,
           info[2]
@@ -62,6 +66,7 @@ export default class MedicinePage extends Component {
           rawmaterialTransporter: rawinfo[4],
           rawmaterialManufacturer: rawinfo[5],
           rawmaterialSupplier: rawinfo[6],
+          medicineStatus: medicineStatus,
         };
         this.setState({
           allManuMedicineInfo: [...this.state.allManuMedicineInfo, newinfo],

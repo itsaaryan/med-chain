@@ -69,8 +69,8 @@ function pickPackageDistributor(address _shipper) public {
     emit ShippmentUpdate(address(this), shipper, distributor, 1, 1);
 }
 
-function receivePackageDistributor(address _retailer,address _distributor) public {
-    require(_distributor==distributor,"only distributor can receive the package");
+function receivePackageDistributor(address _retailer) public {
+    require(msg.sender==distributor,"only distributor can receive the package");
     require(status==medicinestatus(1),"the package is not with shiper");
     status=medicinestatus(2);
     retailer=_retailer;

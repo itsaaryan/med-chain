@@ -1,9 +1,16 @@
 import React, { Component } from "react";
-import { Card } from "semantic-ui-react";
+import { Card, Label } from "semantic-ui-react";
 
 export default class MedicineInfo extends Component {
   render() {
     const { medicineInfo } = this.props;
+    const medicineStatusArray = [
+      "At Manufacturer",
+      "Picked For Distributor",
+      "Delivered To Distributor",
+      "Picked For Retailer",
+      "Delivered To Retailer",
+    ];
     const {
       medicineAddress,
       description,
@@ -18,6 +25,7 @@ export default class MedicineInfo extends Component {
       rawmaterialQuantity,
       rawmaterialSupplier,
       rawmaterialTransporter,
+      medicineStatus,
     } = medicineInfo;
     console.log(medicineInfo);
     return (
@@ -30,7 +38,19 @@ export default class MedicineInfo extends Component {
           }
         >
           <Card.Content>
-            <Card.Header>Medicine Information</Card.Header>
+            <Card.Header>
+              Medicine Information
+              {this.props.distributor && (
+                <>
+                  {" "}
+                  <br></br>
+                  <em>Contract Address - </em> {medicineInfo?.distAddress}
+                </>
+              )}
+              <Label style={{ float: "right" }} color="teal">
+                {medicineStatusArray[medicineStatus]}
+              </Label>
+            </Card.Header>
             <hr></hr>
             <br></br>
             <Card.Description>

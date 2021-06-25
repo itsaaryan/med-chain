@@ -18,6 +18,7 @@ import CreateMedicine from "./pages/Medicine/CreateMedicine";
 import Medicine from "./pages/Medicine/Medicine";
 import Distributor from "./pages/Distributor/Distributor";
 import ReceiveMedicine from "./pages/Distributor/ReceiveMedicine";
+import RetailerPage from "./pages/Retailer/Retailer";
 import {
   dispatchAdminContract,
   dispatchCurrentEthAccount,
@@ -104,6 +105,7 @@ class App extends Component {
               exact
               component={ReceiveMedicine}
             />
+            <Route path="/retailer" exact component={RetailerPage} />
           </Switch>
         </Container>
       </BrowserRouter>

@@ -15,7 +15,6 @@ class ReceiveMedicine extends Component {
   };
 
   handleSubmit = async (e) => {
-    console.log(this.state.batchId, this.state.retailer);
     e.preventDefault();
     this.setState({ loading: true, errorMessage: "" });
     try {
@@ -23,10 +22,9 @@ class ReceiveMedicine extends Component {
         Medicine.abi,
         this.state.batchId
       );
-      console.log(medicine);
       await medicine.methods
-        .receivePackageDistributor(this.state.retailer, this.props.eth_account)
-        .call();
+        .receivePackageDistributor(this.state.retailer)
+        .send({ from: this.props.eth_account });
       toast.success("Received Package Successfully!!!!");
       this.props.history.push("/distributor");
     } catch (err) {
