@@ -134,11 +134,11 @@ class DistributorPage extends Component {
         <Grid>
           <Grid.Row>
             <Grid.Column width={12}>
-              <h1>Sent Packages</h1>
+              <h1 style={{ marginBottom: "-25px" }}>Sent Packages</h1>
               {this.renderRows()}
             </Grid.Column>
             <Grid.Column width={4}>
-              <Card centered style={{ minWidth: "360px" }}>
+              <Card centered style={{ minWidth: "360px", marginTop: "51px" }}>
                 <Card.Content>
                   <Card.Header centered>
                     <h2>Transfer to retailer</h2>

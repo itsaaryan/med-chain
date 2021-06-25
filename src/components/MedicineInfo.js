@@ -32,7 +32,7 @@ export default class MedicineInfo extends Component {
       <div style={{ margin: "40px auto" }}>
         <Card
           style={
-            this.props.distributor
+            this.props.fullWidth || this.props.distributor
               ? { width: "100%" }
               : { width: "80%", margin: "auto" }
           }

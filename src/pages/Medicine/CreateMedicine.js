@@ -64,7 +64,7 @@ class CreateMedicine extends Component {
 
   render() {
     return (
-      <div className="create-medicine">
+      <div style={{ marginTop: "20px" }}>
         <Card centered style={{ minWidth: "360px" }}>
           <Card.Content>
             <Card.Header centered>

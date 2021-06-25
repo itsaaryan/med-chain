@@ -24,8 +24,8 @@ export default class MetaMaskGuide extends Component {
         <h1>Oops!.. Seems like you do not have metamask extension.</h1>
         <h2>Please download it to proceed.</h2>
         <p>
-          After the metamask setup set-up , create an account on <b>Rinkeby</b>{" "}
-          test network.
+          After the metamask set-up , create an account on <b>Rinkeby</b> test
+          network.
         </p>
         <a href="https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en">
           <Button color="teal">Download Metamask Extension</Button>

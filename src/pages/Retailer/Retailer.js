@@ -118,7 +118,7 @@ class Retailer extends Component {
 
   renderRows = () => {
     return this.state.allManuMedicineInfo?.map((medicineInfo) => {
-      return <MedicineInfo medicineInfo={medicineInfo} />;
+      return <MedicineInfo fullWidth medicineInfo={medicineInfo} />;
     });
   };
 
@@ -127,9 +127,12 @@ class Retailer extends Component {
       <div>
         <Grid>
           <Grid.Row>
-            <Grid.Column width={12}>{this.renderRows()}</Grid.Column>
+            <Grid.Column width={12}>
+              <h1 style={{ marginBottom: "-25px" }}>Medicine At Retailer</h1>
+              {this.renderRows()}
+            </Grid.Column>
             <Grid.Column width={4}>
-              <Card centered style={{ minWidth: "360px" }}>
+              <Card centered style={{ minWidth: "360px", marginTop: "51px" }}>
                 <Card.Content>
                   <Card.Header centered>
                     <h2>Receive Medicine</h2>

@@ -78,14 +78,14 @@ class CreateRawPackhage extends Component {
 
   render() {
     return (
-      <div className="supplier">
+      <div style={{ marginTop: "20px" }}>
         <Card centered style={{ minWidth: "360px" }}>
           <Card.Content>
             <Card.Header centered>
               <h2>Create Raw Package</h2>
             </Card.Header>
             <hr></hr>
-            <br></br>
+
             <Card.Description>
               <Form
                 onSubmit={this.handleSubmit}
@@ -144,7 +144,6 @@ class CreateRawPackhage extends Component {
                   />
                 </Form.Field>
 
-                <br></br>
                 {this.state.errorMessage && (
                   <Message
                     negative
