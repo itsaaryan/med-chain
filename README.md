@@ -1,70 +1,92 @@
-# Getting Started with Create React App
+# Med Chain
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was created using ethereum smart contracts to reduce the supply of drugs illegally.Using blockchain technology we assured that the medicine registered go through a secure channel to the consumer,This projects tracks the cycle of the medicine from raw materials used to the hands of consumer.Every step of the medicine cycle the staus of the medicine is tracked.
 
-## Available Scripts
+### Use cases
 
-In the project directory, you can run:
+1. It can be used to track the vaccines for covid-19.
+2. It can be used to track the international medicine tranfer.
+3. It can be used to keep track of how a medicine is performing in the market.
 
-### `yarn start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Features
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Create a raw material and track its progress.
+- View the previously created raw materials.
+- Create a medicine using the created raw materials.
+- Keep track of the medicine being exported.
+- Distribute the medicine to the retailers.
+- Update the status of the medicine (sold,expired,damaged,not received etc.)
+- keep track of the medicine cycle every step of the way.
 
-### `yarn test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Roles
 
-### `yarn build`
+1. Admin
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+   - Registers a new user (Supplier,Transporter,MAnufacturer,Distributor,Retailer).
+   - Reassign roles to existing users.
+   - Revoke roles of existing users.
+   - keep track of the users.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. Supplier
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   - Creates a new raw material.
+   - Keeps track of previously created raw materials.
 
-### `yarn eject`
+3. Manufacturer
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+   - Uses the received raw material to create new medicne.
+   - Registers the mew medicine.
+   - Exports the new medicine to the distributor.
+   - Keeps track of the existing medicines.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+4. Distributor
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+   - Receive the medicine from the manufacturer.
+   - Distributes the medicine to the retailers.
+   - Keeps track of the distributed medicine.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+5. Retailer
 
-## Learn More
+   - Receives medicine from the distributor.
+   - Sells the medicine.
+   - Updates status of the medicine.
+   - Keeps track of the sold medicine.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+6. Transporter
+   - Transports the medicine from supplier to manufacturer.
+   - Transports the medicine from the manufacturer to distributor.
+   - Transports the medicine from distributor to retailer.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### ADMIN
 
-### Code Splitting
+![All users](https://res.cloudinary.com/dsxeglxhm/image/upload/v1624737422/Screenshot_141_rmobof.png)
+![Create User](https://res.cloudinary.com/dsxeglxhm/image/upload/v1624737421/Screenshot_142_vifybh.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Supplier
 
-### Analyzing the Bundle Size
+![Create Raw Package](https://res.cloudinary.com/dsxeglxhm/image/upload/v1624737422/Screenshot_143_fhza0n.png)
+![All raw PAckages](https://res.cloudinary.com/dsxeglxhm/image/upload/v1624737422/Screenshot_145_o5zspo.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Transporter
 
-### Making a Progressive Web App
+![Pickup](https://res.cloudinary.com/dsxeglxhm/image/upload/v1624737422/Screenshot_146_xcwzcy.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Manufacturer
 
-### Advanced Configuration
+![Receive raw packages](https://res.cloudinary.com/dsxeglxhm/image/upload/v1624737422/Screenshot_147_xanjrg.png)
+![Create Medicine](https://res.cloudinary.com/dsxeglxhm/image/upload/v1624737422/Screenshot_148_u07976.png)
+![All medicine](https://res.cloudinary.com/dsxeglxhm/image/upload/v1624737423/Screenshot_149_rnnedw.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Distributor
 
-### Deployment
+![Receive Medicine](https://res.cloudinary.com/dsxeglxhm/image/upload/v1624737422/Screenshot_150_gc1gda.png)
+![Transfer to retailer](https://res.cloudinary.com/dsxeglxhm/image/upload/v1624737423/Screenshot_151_hli7in.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Retailer
 
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![Receive Medicne](https://res.cloudinary.com/dsxeglxhm/image/upload/v1624737423/Screenshot_153_ugehiv.png)
+![Update status](https://res.cloudinary.com/dsxeglxhm/image/upload/v1624737423/Screenshot_152_i14meo.png)
