@@ -91,6 +91,7 @@ class Retailer extends Component {
 
   handleSubmit = async (e) => {
     e.preventDefault();
+    this.setState({ loading: true });
     const web3 = window.web3;
     try {
       const networkId = await web3.eth.net.getId();
@@ -114,6 +115,7 @@ class Retailer extends Component {
     } catch (err) {
       this.setState({ errorMessage: err.message });
     }
+    this.setState({ loading: false });
   };
 
   renderRows = () => {

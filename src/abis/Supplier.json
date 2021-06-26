@@ -4670,6 +4670,44 @@
     "version": "0.5.16+commit.9c3226ce.Emscripten.clang"
   },
   "networks": {
+    "4": {
+      "events": {
+        "0x9dbe7d9fdd28b9b1c2ffe79a40f7beff124537ed0d7a47555d009e0271fc6133": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "productId",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "supplier",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "address",
+              "name": "shipper",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "receiver",
+              "type": "address"
+            }
+          ],
+          "name": "RawSupplyInit",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0xDd9b2981CeD855A3Af39bFF5aBcBF9cB393aBf9C",
+      "transactionHash": "0xab08a8c2ae5a797dda5eba6cae58dc9e35aa7889457ae2e6b2a0acaf0cfdfc74"
+    },
     "5777": {
       "events": {
         "0x9dbe7d9fdd28b9b1c2ffe79a40f7beff124537ed0d7a47555d009e0271fc6133": {
@@ -4710,7 +4748,7 @@
     }
   },
   "schemaVersion": "3.2.3",
-  "updatedAt": "2021-06-25T12:10:44.133Z",
+  "updatedAt": "2021-06-26T09:17:30.007Z",
   "networkType": "ethereum",
   "devdoc": {
     "methods": {}

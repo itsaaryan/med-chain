@@ -1,28 +1,10 @@
-/**
- * Use this file to configure your truffle project. It's seeded with some
- * common settings for different networks and features like migrations,
- * compilation and testing. Uncomment the ones you need or modify
- * them to suit your project as necessary.
- *
- * More information about configuration can be found at:
- *
- * truffleframework.com/docs/advanced/configuration
- *
- * To deploy via Infura you'll need a wallet provider (like @truffle/hdwallet-provider)
- * to sign your transactions before they're sent to a remote public node. Infura accounts
- * are available for free at: infura.io/register.
- *
- * You'll also need a mnemonic - the twelve word phrase the wallet uses to generate
- * public/private key pairs. If you're publishing your code to GitHub make sure you load this
- * phrase from a file you've .gitignored so it doesn't accidentally become public.
- *
- */
 require("babel-register");
 require("babel-polyfill");
-
-// const HDWalletProvider = require('@truffle/hdwallet-provider');
-// const infuraKey = "fj4jll3k.....";
-//
+const HDWalletProvider = require("@truffle/hdwallet-provider");
+const infuraKey =
+  "wss://rinkeby.infura.io/ws/v3/8ebd9299717546e9b7227351ccd6a257";
+const seedPhrase =
+  "ticket patrol execute rely reward salon voyage exclude yellow perfect erase marble";
 // const fs = require('fs');
 // const mnemonic = fs.readFileSync(".secret").toString().trim();
 
@@ -32,6 +14,14 @@ module.exports = {
       host: "127.0.0.1", // Localhost (default: none)
       port: 7545, // Standard Ethereum port (default: none)
       network_id: "*", // Any network (default: none,
+    },
+    rinkeby: {
+      provider: () => new HDWalletProvider(seedPhrase, infuraKey),
+      network_id: 4,
+      gas: 5500000,
+      confirmations: 2,
+      timeoutBlocks: 200000000000000,
+      skipDryRun: true,
     },
   },
   contracts_directory: "./src/contracts/",

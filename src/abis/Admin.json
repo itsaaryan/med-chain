@@ -8089,6 +8089,82 @@
     "version": "0.5.16+commit.9c3226ce.Emscripten.clang"
   },
   "networks": {
+    "4": {
+      "events": {
+        "0x4578d2996968543afa1dfb0791664b8fb16108663190bcf1f68e698c4589db19": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "EthAddress",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "Name",
+              "type": "string"
+            }
+          ],
+          "name": "UserRegister",
+          "type": "event"
+        },
+        "0x35ef25ed794630e2607a853ec75377c24e87b8b51c13fd3e08156fcfda7eb15a": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "EthAddress",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "Name",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "Role",
+              "type": "uint256"
+            }
+          ],
+          "name": "UserRoleRessign",
+          "type": "event"
+        },
+        "0x18a4c0aa2d0b9e55cfd3c133652630cc693f845135ba74f56f45c8d38910ce5c": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "EthAddress",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "Name",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "Role",
+              "type": "uint256"
+            }
+          ],
+          "name": "UserRoleRevoked",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0x476B7C1bfF9C2f0C854F3155fF79df8344c7924D",
+      "transactionHash": "0x75d15f8795a9e919306b5b1ba6eb767663cf8c62d9f0e24c19adba0ec46ad4df"
+    },
     "5777": {
       "events": {
         "0x4578d2996968543afa1dfb0791664b8fb16108663190bcf1f68e698c4589db19": {
@@ -8192,7 +8268,7 @@
     }
   },
   "schemaVersion": "3.2.3",
-  "updatedAt": "2021-06-25T12:10:44.120Z",
+  "updatedAt": "2021-06-26T09:17:29.974Z",
   "networkType": "ethereum",
   "devdoc": {
     "methods": {}

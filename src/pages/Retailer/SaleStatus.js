@@ -21,6 +21,7 @@ class SaleStatus extends Component {
 
   handleSubmit = async (e) => {
     e.preventDefault();
+    this.setState({ loading: true });
     const web3 = window.web3;
     try {
       const accounts = await web3.eth.getAccounts();
@@ -42,6 +43,7 @@ class SaleStatus extends Component {
     } catch (err) {
       this.setState({ errorMessage: err.message });
     }
+    this.setState({ loading: false });
   };
 
   handleDropdownSelect = (e, data) => {

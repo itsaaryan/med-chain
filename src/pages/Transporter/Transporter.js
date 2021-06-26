@@ -17,6 +17,7 @@ class TransporterPage extends Component {
 
   handleSubmit = async (e) => {
     e.preventDefault();
+    this.setState({ loading: true });
     try {
       let web3 = window.web3;
       const networkId = await web3.eth.net.getId();
@@ -38,6 +39,7 @@ class TransporterPage extends Component {
     } catch (err) {
       this.setState({ errorMessage: err.message });
     }
+    this.setState({ loading: false });
   };
 
   destinationOptions = [
