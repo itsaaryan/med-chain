@@ -77,7 +77,7 @@ class Admin extends Component {
         .registerUser(ethAddress, name, location, role)
         .send({ from: this.props.eth_account });
       toast.success("New user registered succressfully!!!!");
-      this.props.history.push("/admin");
+      this.props.history.push("/");
       this.setState({ name: "", location: "", ethAddress: "", role: 0 });
     } catch (err) {
       this.setState({ errorMessage: err.message });
@@ -127,13 +127,16 @@ class Admin extends Component {
                     placeholder="0x0"
                   />
                 </Form.Field>
-                <Dropdown
-                  placeholder="Select Role"
-                  fluid
-                  selection
-                  options={this.roleOptions}
-                  onChange={this.handleDropdownSelect}
-                />
+                <Form.Field>
+                  <label>Select Role</label>
+                  <Dropdown
+                    placeholder="Select Role"
+                    fluid
+                    selection
+                    options={this.roleOptions}
+                    onChange={this.handleDropdownSelect}
+                  />
+                </Form.Field>
                 <br></br>
                 <Message
                   error

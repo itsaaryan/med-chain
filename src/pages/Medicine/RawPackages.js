@@ -76,20 +76,24 @@ class RawPackages extends Component {
     e.preventDefault();
     this.setState({ loading: true, errorMessage: "" });
     const web3 = window.web3;
-    const networkId = await web3.eth.net.getId();
-    const MedCycleData = await MedCycle.networks[networkId];
-    if (MedCycleData) {
-      const medCycle = await new web3.eth.Contract(
-        MedCycle.abi,
-        MedCycleData.address
-      );
-      await medCycle.methods
-        .rawPackageReceived(this.state.rawMaterialAdress)
-        .send({ from: this.props.eth_account });
-      toast.success("Package received successfully!!");
-      window.location.reload(false);
-    } else {
-      toast.error("The MedCycle Contract does not exist on this network!");
+    try {
+      const networkId = await web3.eth.net.getId();
+      const MedCycleData = await MedCycle.networks[networkId];
+      if (MedCycleData) {
+        const medCycle = await new web3.eth.Contract(
+          MedCycle.abi,
+          MedCycleData.address
+        );
+        await medCycle.methods
+          .rawPackageReceived(this.state.rawMaterialAdress)
+          .send({ from: this.props.eth_account });
+        toast.success("Package received successfully!!");
+        window.location.reload(false);
+      } else {
+        toast.error("The MedCycle Contract does not exist on this network!");
+      }
+    } catch (err) {
+      this.setState({ errorMessage: err.message });
     }
     this.setState({ loading: false });
   };

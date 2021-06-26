@@ -112,7 +112,7 @@ class DistributorPage extends Component {
           )
           .send({ from: this.props.eth_account });
         toast.success("Sent Successfully!!!!");
-        this.props.history.replace("/distributor");
+        this.props.history.replace("/");
       } catch (err) {
         this.setState({ errorMessage: err.message });
       }

@@ -107,7 +107,7 @@ class Retailer extends Component {
           )
           .send({ from: this.props.eth_account });
         toast.success("Received Successfully!!!!");
-        this.props.history.push("/retailer");
+        this.props.history.push("/");
       } else {
         toast.error("The distributor contract is not on this network!!");
       }

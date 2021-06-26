@@ -63,14 +63,14 @@ class Navbar extends Component {
             <>
               <Menu.Item
                 as={Link}
-                to="/admin"
+                to="/"
                 name="All Users"
                 active={activeItem === "All Users"}
                 onClick={this.handleItemClick}
               />
               <Menu.Item
                 as={Link}
-                to="/admin/register-user"
+                to="/register-user"
                 name="Create User"
                 active={activeItem === "Create User"}
                 onClick={this.handleItemClick}
@@ -81,14 +81,14 @@ class Navbar extends Component {
             <>
               <Menu.Item
                 as={Link}
-                to="/supplier"
+                to="/"
                 name="All Raw Packages"
                 active={activeItem === "All Raw Packages"}
                 onClick={this.handleItemClick}
               />
               <Menu.Item
                 as={Link}
-                to="/supplier/new-raw-package"
+                to="/new-raw-package"
                 name="Create New"
                 active={activeItem === "Create New"}
                 onClick={this.handleItemClick}
@@ -100,7 +100,7 @@ class Navbar extends Component {
             <>
               <Menu.Item
                 as={Link}
-                to="/transporter"
+                to="/"
                 name="Pickup Package"
                 active={activeItem === "Pickup Package"}
                 onClick={this.handleItemClick}
@@ -112,21 +112,21 @@ class Navbar extends Component {
             <>
               <Menu.Item
                 as={Link}
-                to="/medicine"
+                to="/"
                 name="All Medicines"
                 active={activeItem === "All Medicines"}
                 onClick={this.handleItemClick}
               />
               <Menu.Item
                 as={Link}
-                to="/medicine/raw-packages-atmanufacturer"
+                to="/raw-packages-atmanufacturer"
                 name="Receive Raw Package"
                 active={activeItem === "Receive Raw Package"}
                 onClick={this.handleItemClick}
               />
               <Menu.Item
                 as={Link}
-                to="/medicine/create-medicine"
+                to="/create-medicine"
                 name="Create New"
                 active={activeItem === "Create New"}
                 onClick={this.handleItemClick}
@@ -138,14 +138,14 @@ class Navbar extends Component {
             <>
               <Menu.Item
                 as={Link}
-                to="/distributor"
+                to="/"
                 name="Send To Retailer"
                 active={activeItem === "Send To Retailer"}
                 onClick={this.handleItemClick}
               />
               <Menu.Item
                 as={Link}
-                to="/distributor/receive-medicine"
+                to="/receive-medicine"
                 name="Receive Medicine"
                 active={activeItem === "Receive Medicine"}
                 onClick={this.handleItemClick}
@@ -157,14 +157,14 @@ class Navbar extends Component {
             <>
               <Menu.Item
                 as={Link}
-                to="/retailer"
+                to="/"
                 name="Medicine At Retailer"
                 active={activeItem === "Medicine At Retailer"}
                 onClick={this.handleItemClick}
               />
               <Menu.Item
                 as={Link}
-                to="/retailer/sale-status"
+                to="/sale-status"
                 name="Update Sale Status"
                 active={activeItem === "Update Sale Status"}
                 onClick={this.handleItemClick}

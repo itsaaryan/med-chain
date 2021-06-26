@@ -52,7 +52,7 @@ class CreateMedicine extends Component {
           )
           .send({ from: accounts[0] });
         toast.success("Congrats!! New Medicine Created!!");
-        this.props.history.push("/medicine");
+        this.props.history.push("/");
       } catch (err) {
         this.setState({ errorMessage: err.message });
       }

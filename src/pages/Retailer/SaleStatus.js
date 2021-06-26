@@ -35,7 +35,7 @@ class SaleStatus extends Component {
           .updateSaleStatus(this.state.batchId, this.state.status)
           .send({ from: accounts[0] });
         toast.success("Status Updated Successfully!!!!!");
-        this.props.history.push("/retailer");
+        this.props.history.push("/");
       } else {
         toast.error("MedCycle contract does not exist on this network!!!");
       }

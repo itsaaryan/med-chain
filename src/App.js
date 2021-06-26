@@ -77,8 +77,8 @@ class App extends Component {
   adminRoutes = () => {
     return (
       <Switch>
-        <Route path="/admin" exact component={AdminPage} />
-        <Route path="/admin/register-user" exact component={AdminPageCreate} />
+        <Route path="/" exact component={AdminPage} />
+        <Route path="/register-user" exact component={AdminPageCreate} />
       </Switch>
     );
   };
@@ -86,12 +86,8 @@ class App extends Component {
   supplierRoutes = () => {
     return (
       <Switch>
-        <Route path="/supplier" exact component={SupplierPage} />
-        <Route
-          path="/supplier/new-raw-package"
-          exact
-          component={CreateRawPackhage}
-        />
+        <Route path="/" exact component={SupplierPage} />
+        <Route path="/new-raw-package" exact component={CreateRawPackhage} />
       </Switch>
     );
   };
@@ -99,7 +95,7 @@ class App extends Component {
   transporterRoutes = () => {
     return (
       <Switch>
-        <Route path="/transporter" exact component={TransporterPage} />
+        <Route path="/" exact component={TransporterPage} />
       </Switch>
     );
   };
@@ -107,17 +103,13 @@ class App extends Component {
   manufacturerRoutes = () => {
     return (
       <Switch>
-        <Route path="/medicine" exact component={Medicine} />
+        <Route path="/" exact component={Medicine} />
         <Route
-          path="/medicine/raw-packages-atmanufacturer"
+          path="/raw-packages-atmanufacturer"
           exact
           component={RawPackagesManufacturer}
         />
-        <Route
-          path="/medicine/create-medicine"
-          exact
-          component={CreateMedicine}
-        />
+        <Route path="/create-medicine" exact component={CreateMedicine} />
       </Switch>
     );
   };
@@ -125,12 +117,8 @@ class App extends Component {
   distributorRoutes = () => {
     return (
       <Switch>
-        <Route path="/distributor" exact component={Distributor} />
-        <Route
-          path="/distributor/receive-medicine"
-          exact
-          component={ReceiveMedicine}
-        />
+        <Route path="/" exact component={Distributor} />
+        <Route path="/receive-medicine" exact component={ReceiveMedicine} />
       </Switch>
     );
   };
@@ -138,8 +126,8 @@ class App extends Component {
   retailerRoutes = () => {
     return (
       <Switch>
-        <Route path="/retailer" exact component={RetailerPage} />
-        <Route path="/retailer/sale-status" exact component={SaleStatus} />
+        <Route path="/" exact component={RetailerPage} />
+        <Route path="/sale-status" exact component={SaleStatus} />
       </Switch>
     );
   };

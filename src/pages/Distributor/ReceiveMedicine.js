@@ -26,7 +26,7 @@ class ReceiveMedicine extends Component {
         .receivePackageDistributor(this.state.retailer)
         .send({ from: this.props.eth_account });
       toast.success("Received Package Successfully!!!!");
-      this.props.history.push("/distributor");
+      this.props.history.push("/");
     } catch (err) {
       this.setState({ errorMessage: err.message });
     }

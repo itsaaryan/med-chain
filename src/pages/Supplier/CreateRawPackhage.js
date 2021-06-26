@@ -66,7 +66,7 @@ class CreateRawPackhage extends Component {
           )
           .send({ from: this.props.eth_account });
         toast.success("Successfully created a new package!!");
-        this.props.history.push("/supplier");
+        this.props.history.push("/");
       } else {
         toast.error("The Supplier Contract does not exist on this network!");
       }
