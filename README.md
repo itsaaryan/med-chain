@@ -64,11 +64,17 @@ This project was created using ethereum smart contracts to reduce the supply of 
 ### ADMIN
 
 ![All users](https://res.cloudinary.com/dsxeglxhm/image/upload/v1624737422/Screenshot_141_rmobof.png)
+
+---
+
 ![Create User](https://res.cloudinary.com/dsxeglxhm/image/upload/v1624737421/Screenshot_142_vifybh.png)
 
 ### Supplier
 
 ![Create Raw Package](https://res.cloudinary.com/dsxeglxhm/image/upload/v1624737422/Screenshot_143_fhza0n.png)
+
+---
+
 ![All raw PAckages](https://res.cloudinary.com/dsxeglxhm/image/upload/v1624737422/Screenshot_145_o5zspo.png)
 
 ### Transporter
@@ -78,15 +84,27 @@ This project was created using ethereum smart contracts to reduce the supply of 
 ### Manufacturer
 
 ![Receive raw packages](https://res.cloudinary.com/dsxeglxhm/image/upload/v1624737422/Screenshot_147_xanjrg.png)
+
+---
+
 ![Create Medicine](https://res.cloudinary.com/dsxeglxhm/image/upload/v1624737422/Screenshot_148_u07976.png)
+
+---
+
 ![All medicine](https://res.cloudinary.com/dsxeglxhm/image/upload/v1624737423/Screenshot_149_rnnedw.png)
 
 ### Distributor
 
 ![Receive Medicine](https://res.cloudinary.com/dsxeglxhm/image/upload/v1624737422/Screenshot_150_gc1gda.png)
+
+---
+
 ![Transfer to retailer](https://res.cloudinary.com/dsxeglxhm/image/upload/v1624737423/Screenshot_151_hli7in.png)
 
 ### Retailer
 
 ![Receive Medicne](https://res.cloudinary.com/dsxeglxhm/image/upload/v1624737423/Screenshot_153_ugehiv.png)
+
+---
+
 ![Update status](https://res.cloudinary.com/dsxeglxhm/image/upload/v1624737423/Screenshot_152_i14meo.png)
