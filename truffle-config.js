@@ -1,10 +1,9 @@
 require("babel-register");
 require("babel-polyfill");
 const HDWalletProvider = require("@truffle/hdwallet-provider");
-const infuraKey =
-  "wss://rinkeby.infura.io/ws/v3/8ebd9299717546e9b7227351ccd6a257";
-const seedPhrase =
-  "ticket patrol execute rely reward salon voyage exclude yellow perfect erase marble";
+const { SEED_PHRASE, INFURA_KEY } = require("./seed-phrase");
+const infuraKey = INFURA_KEY;
+const seedPhrase = SEED_PHRASE;
 // const fs = require('fs');
 // const mnemonic = fs.readFileSync(".secret").toString().trim();
 
