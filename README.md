@@ -1,6 +1,6 @@
 # Med Chain
 
-This project was created using ethereum smart contracts to reduce the supply of drugs illegally.Using blockchain technology we assured that the medicine registered go through a secure channel to the consumer,This projects tracks the cycle of the medicine from raw materials used to the hands of consumer.Every step of the medicine cycle the staus of the medicine is tracked.
+This project was created using ethereum smart contracts to reduce the supply of drugs illegally.Using blockchain technology I assured that the medicine registered go through a secure channel to the consumer,This projects tracks the cycle of the medicine from raw materials used to the hands of consumer.Every step of the medicine cycle the staus of the medicine is tracked.
 
 ### Use cases
 
